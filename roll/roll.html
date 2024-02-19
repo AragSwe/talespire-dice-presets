@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dice Roller</title>
+    <link rel="stylesheet" href="roll.css">
+    <script src="roll.js"></script>
+</head>
+
+<body>
+    <h1 style="margin-top: 0">Dice Roll</h1>
+    <div class="content-row">
+        <label class="field-title" for="min-crit-range">Min crit-range</label><input id="min-crit-range" placeholder="19"></input>
+    </div>
+    <div class="content-row">
+        <label class="field-title" for="roll-name-standard-attack">Name</label><input id="roll-name-standard-attack" placeholder="Standard attack"></input>
+        <label class="field-title" for="roll-content-standard-attack">Dice</label><input id="roll-content-standard-attack" placeholder="1d20"></input>
+    </div>
+    <div class="content-row">
+        <label class="field-title" for="roll-name-full-attack">Name</label><input id="roll-name-full-attack" placeholder="Full attack"></input>
+        <label class="field-title" for="roll-content">Dice</label><input id="roll-content-full-attack" placeholder="1d20"></input>
+    </div>
+    <div class="content-row">
+        <span class="spacer"></span><button id="roll-standard-attack" onclick="roll('standard')">Roll Standard Attack</button>
+    </div>
+    <div class="content-row">
+        <span class="spacer"></span><button id="roll-full-attack" onclick="roll('full')">Roll Full Attack</button>
+    </div>
+</body>
+</html>
