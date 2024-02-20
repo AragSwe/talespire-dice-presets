@@ -1,3 +1,5 @@
+const splitDice = require('./splitDice');
+
 let trackedIds = {};
 let isGM = false;
 let me;
@@ -19,11 +21,7 @@ function roll(type) {
 
     const name = document.getElementById(nameId).value;
     const dice = document.getElementById(diceId).value;
-    const allDice = [];
-    dice.split('+').forEach((d, i) => {
-        allDice.push({ name: name + '(' + i + ')', roll: d });
-    });
-    console.log(allDice);
+    const allDice = splitDice(name, dice);
     TS.dice.putDiceInTray(allDice, true).then((diceSetResponse) => {
         trackedIds[diceSetResponse] = type;
     });
