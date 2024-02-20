@@ -1,0 +1,19 @@
+{
+  "name": "talespire-dice-presets",
+  "version": "1.0.0",
+  "description": "TaleSpire symbios for managing dice presets",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aragswe/talespire-dice-presets.git"
+  },
+  "author": "Mikael Dahlqvist",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aragswe/talespire-dice-presets/issues"
+  },
+  "homepage": "https://github.com/aragswe/talespire-dice-presets#readme"
+}
