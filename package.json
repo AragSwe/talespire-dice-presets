@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/aragswe/talespire-dice-presets/issues"
   },
-  "homepage": "https://github.com/aragswe/talespire-dice-presets#readme"
+  "homepage": "https://github.com/aragswe/talespire-dice-presets#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
