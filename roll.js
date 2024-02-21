@@ -1,6 +1,5 @@
 let trackedIds = {};
-let isGM = false;
-let me;
+let customCount = 1;
 
 window.addEventListener("load", (event) => {
 });
@@ -11,12 +10,12 @@ function roll(type) {
         return;
 
     if (type == "custom")
-        rollCustom(diceId);
+        rollCustom();
     else
-        rollRegularAttack(diceId);
+        rollRegularAttack(diceId, type);
 }
 
-function rollRegularAttack(diceId) {
+function rollRegularAttack(diceId, type) {
     let dice = document.getElementById(diceId).value;
     let allDice = [];
     for(let i = 0; i < dice; i++) {
@@ -27,10 +26,38 @@ function rollRegularAttack(diceId) {
     });
 }
 
-function rollCustom(diceId) {
-    TS.dice.putDiceInTray([{name:'custom', roll:'2d20+3d10+1d4'}], false)/*.then((diceSetResponse) => {
+function rollCustom() {
+    const allCustomDice = [];
+    for (let i = 0; i < customCount; i++) {
+        const name = document.getElementById('roll-content-custom-name' + i).value
+        const dice = document.getElementById('roll-content-custom-dice' + i).value
+        if (name != '' && dice != '')
+            allCustomDice.push({name: name, roll: dice});
+    }
+    TS.dice.putDiceInTray(allCustomDice, false)/*.then((diceSetResponse) => {
         trackedIds[diceSetResponse] = type;
     });*/
+}
+
+function addCustomRow() {
+    var count = customCount++;
+    const nameInput = document.createElement('input');
+    nameInput.id = 'roll-content-custom-name' + count;
+    const rollInput = document.createElement('input');
+    rollInput.id = 'roll-content-custom-dice' + count;
+    const label = document.createElement('label');
+    label.innerHTML = "Custom";
+    const spacer = document.createElement('span');
+    spacer.setAttribute('class', 'spacer');
+    const wrapper = document.createElement('div');
+    wrapper.setAttribute('class', 'content-row');
+    wrapper.appendChild(spacer);
+    wrapper.appendChild(label);
+    wrapper.appendChild(nameInput);
+    wrapper.appendChild(rollInput);
+
+    var customRowsPlaceHolder = document.getElementById('custom-rows');
+    customRowsPlaceHolder.appendChild(wrapper);
 }
 
 function getDiceId(type) {
