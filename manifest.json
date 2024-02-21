@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
-    "name": "Dice Roller",
-    "summary": "A Symbiote to roll dice with advantage or disadvantage",
+    "name": "Dice Presets",
+    "summary": "A Symbiote to manage presets for attacking and damage in our dnd 3.5 homebrew",
     "entryPoint": "/roll.html",
     "descriptionFilePath": "/readme.md",
     "api": {
