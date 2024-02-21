@@ -6,20 +6,17 @@ window.addEventListener("load", (event) => {
 });
 
 function roll(type) {
-    let diceId = '';
-    switch (type)
-    {
-        case "standard":
-            diceId = 'roll-content-standard-attack';
-            break;
-        case "full":
-            diceId = 'roll-content-full-attack';
-            break;
-    }
+    let diceId = getDiceId(type);
     if (diceId == '')
         return;
 
-    const name = type;
+    if (type == "custom")
+        rollCustom(diceId);
+    else
+        rollRegularAttack(diceId);
+}
+
+function rollRegularAttack(diceId) {
     let dice = document.getElementById(diceId).value;
     let allDice = [];
     for(let i = 0; i < dice; i++) {
@@ -28,6 +25,25 @@ function roll(type) {
     TS.dice.putDiceInTray(allDice, true).then((diceSetResponse) => {
         trackedIds[diceSetResponse] = type;
     });
+}
+
+function rollCustom(diceId) {
+    TS.dice.putDiceInTray([{name:'custom', roll:'2d20+3d10+1d4'}], false)/*.then((diceSetResponse) => {
+        trackedIds[diceSetResponse] = type;
+    });*/
+}
+
+function getDiceId(type) {
+    switch (type)
+    {
+        case "standard":
+            return 'roll-content-standard-attack';
+        case "full":
+            return 'roll-content-full-attack';
+        case "custom":
+            return 'roll-content-custom';
+        default: return '';
+    }
 }
 
 async function handleRollResult(rollEvent) {
