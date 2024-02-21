@@ -11,8 +11,10 @@ function roll(type) {
     {
         case "standard":
             diceId = 'roll-content-standard-attack';
+            break;
         case "full":
             diceId = 'roll-content-full-attack';
+            break;
     }
     if (diceId == '')
         return;
@@ -46,7 +48,7 @@ async function handleRollResult(rollEvent) {
         for(let group of roll.resultsGroups) {
             let groupSum = await TS.dice.evaluateDiceResultsGroup(group);
             if (groupSum >= critTrigger)
-                threatDice.push({name:'threat', roll:'d20'});
+                threatDice.push({name:'threat ' + group.name, roll:'d20'});
         }
 
         TS.dice.putDiceInTray(threatDice, false);
