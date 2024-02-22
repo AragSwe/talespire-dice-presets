@@ -22,18 +22,12 @@
         <input id="roll-content-full-attack" value="2"></input>
         <button id="roll-full-attack" onclick="roll('full')">Roll</button>
     </div>
-    <div class="content-row">
-        <span class="spacer"></span>
-        <label class="field-title" for="roll-content-custom-name0">Custom</label>
-        <input id="roll-content-custom-name0"></input>
-        <input id="roll-content-custom-dice0"></input>
-    </div>
     <div id="custom-rows">
     </div>
     <div class="content-row">
         <span class="spacer"></span>
-        <button id="roll-full-attack" onclick="addCustomRow()">Add row</button>
-        <button id="roll-full-attack" onclick="roll('custom')">Roll Custom</button>
+        <button id="add-custom-row" onclick="addCustomRow()">Add row</button>
+        <button id="roll-custom-all" onclick="rollAllCustom()">Roll All Custom</button>
     </div>
 </body>
 </html>
