@@ -27,7 +27,8 @@ function rollRegularAttack(diceId, type) {
 function rollCustom(id) {
     const name = document.getElementById('roll-content-custom-name' + id).value;
     const dice = document.getElementById('roll-content-custom-dice' + id).value;
-    TS.dice.putDiceInTray([{name: name, roll: dice}], false);
+    if (name != '' && dice != '')
+        TS.dice.putDiceInTray([{name: name, roll: dice}], false);
 }
 
 function rollAllCustom() {
